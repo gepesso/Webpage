@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="master.css">
+
+<!--Script for Angular.js-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- ENTERING FONTS HERE FOR LATER-->
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- END FONTS -->
+
+<head>
+<title>Gaia Project Automa</title>
+<meta charset="utf-8" name="GaiaProject" content="Gaia Project Automa">
+<!--<h1>Gaia Project Automa</h1>-->
+</head>
+
+  <body>
+      <div class="Choices">
+        Choose number of players:
+        <select class="Players" name="" id="PlayerSelection">
+            <option value="1" id="1 Automa">1 Automa</option>
+            <option value="2" id="2 Automa">2 Automa</option>
+            <option value="3" id="3 Automa">3 Automa</option>
+        </select><br>
+        Choose Your Color:
+        <select class="Color" name="" id="PlayerColor">
+            <option value="Blue" id="BluePlayer">Blue</option>
+            <option value="Orange" id="OrangePlayer">Orange</option>
+            <option value="White" id="WhitePlayer">White</option>
+            <option value="Yellow" id="YellowPlayer">Yellow</option>
+            <option value="Black" id="BlackPlayer">Black</option>
+            <option value="Brown" id="BrownPlayer">Brown</option>
+            <option value="Red" id="RedPlayer">Red</option>
+        </select><br>
+        Choose Your Oponents Color:
+            <input type="checkbox" id="Automa1" value="Blue">Blue</input>
+            <input type="checkbox" id="Automa2" value="Orange">Orange</input>
+            <input type="checkbox" id="Automa3" value="White">White</input>
+            <input type="checkbox" id="Automa4" value="Yellow">Yellow</input>
+            <input type="checkbox" id="Automa5" value="Black">Black</input>
+            <input type="checkbox" id="Automa6" value="Brown">Brown</input>
+            <input type="checkbox" id="Automa7" value="Red">Red</input>
+            <input type="checkbox" id="Automa8" value="Random">Random</input>
+        <br>
+        Choose Game Difficulty:
+        <select class="Difficulty" name="" id="Difficulty">
+            <option value="Automalein - Easy" id="Easy">Automalein - Easy</option>
+            <option value="Automa - Normal" id="Normal">Automa - Normal</option>
+            <option value="Automachtig - Hard" id="Hard">Automachtig - Hard</option>
+            <option value="Ultoma - Very Hard" id="VeryHard">Ultoma - Very Hard</option>
+            <option value="Alptrauma - Extreme" id="Extreme">Alptrauma - Extreme</option>
+        </select>
+        <br>
+        <button type="submit" name="button" onclick="CreateGame()">Create Game</button>
+        &nbsp;
+        <button type="submit" name="button" onclick=document.location.reload(true)>Restart</button>
+      </div>
+<br>
+      <div class="Download" style=float: right>
+        <a href="gwtsolorules.pdf" download>
+        <button type="Download" class="download"><i class="fa fa-download"></i> Download Rules Here</button></a>
+      </div>
+
+<br>
+      <div id="Results">
+        <label for="Difficulty"><b>Difficulty: </b></label>
+        <label id="ChosenDifficulty"></label>
+        <br>
+        <label for="NumberofPlayers"><b>Number of Players: </b></label>
+        <label id="NumberofPlayers"></label>
+      </div>
+
+<!-- Will enter the new info in here-->
+<br>
+    <div id="tables">
+          <table id="playertable">
+            <tr id="P1 ROW">
+              <th id="Player 1"></th>
+              <td id="P1 Move"></td>
+            </tr>
+            <tr id="P2 ROW">
+              <th id="Player 2"></th>
+              <td id="P2 Move"></td>
+              <td id="P2 Card 1"></td>
+              <td id="P2 Card 2"></td>
+            </tr>
+            <tr id="P3 ROW">
+              <th id="Player 3"></th>
+              <td id="P3 Move"></td>
+              <td id="P3 Card 1"></td>
+              <td id="P3 Card 2"></td>
+            </tr>
+            <tr id="P4 ROW">
+              <th id="Player 4"></th>
+              <td id="P4 Move"></td>
+              <td id="P4 Card 1"></td>
+              <td id="P4 Card 2"></td>
+            </tr>
+          </table>
+      </div>
+<!--Button for next move-->
+<br>
+      <div class="Next Move">
+          <button type="NextPlayer" name="NextPlayer" onclick="NextPlayer()">Next Player</button>
+          &nbsp;
+          <button type="Score" name="Score" onclick="Score()">Scoring Sheet</button>
+      </div>
+
+<br>
+      <div class="Return Main">
+        <a href="index.html">
+          <button type="button" name="Return" onclick="goback()">Return to Main Page</button>
+        </a>
+      </div>
+  </body>
+<br>
+<footer>This page does not intend to break any copyright. All contents here
+are property of Z-Man Games</footer>
+
+<script src="GaiaProject.js"></script>
+</html>

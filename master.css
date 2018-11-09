@@ -1,0 +1,172 @@
+
+h1{
+  color: Blue;
+  font-family: "Tahoma";
+  font: times;
+  font-size: 26px;
+  font-style: italic;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+body{
+  background-image: url("houndstooth-pattern.png");
+  font: verdana
+}
+
+.Choices{
+  padding: 3px;
+  line-height: 25px;
+}
+
+.Automas{
+    color: red;
+    background-color: lightgreen;
+    padding: 16px;
+}
+
+.download{
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: RoyalBlue;
+}
+
+
+#playertable{
+  table-layout: fixed;
+  width: auto;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+
+}
+
+tr{
+  width: auto;
+  height: auto;
+  background-color: #f2f2f2;
+  background-clip: content-box;
+}
+
+#ScoringTable{
+  width: 200px;
+  height: auto;
+
+}
+
+#ScoreArea{
+  width: 200px;
+  height: auto;
+
+}
+
+.Score{
+  width: 400px;
+  height: auto;
+
+}
+
+th{
+  background-color: #DCDCDC;
+}
+
+
+#GWT{
+  background-color: green;
+  color: Black;
+  padding: 16px;
+  font-family: arial, cursive;
+}
+
+#GP{
+  background-color: Black;
+  padding: 16px;
+  font-family: arial, cursive;
+  color: green;
+}
+
+#BluePlayer, .BluePlayer{
+  color: white;
+  background-color: Blue;
+  background-size: auto;
+}
+
+#Normal{
+  color: Black;
+  background-color: lightyellow;
+}
+
+#VeryHard{
+  color: Black;
+  background-color: orange;
+}
+
+#Extreme{
+  color: white;
+  background-color: magenta;
+}
+
+#GreenPlayer, .GreenPlayer, #Easy{
+  color: white;
+  background-color: Green;
+}
+
+#OrangePlayer, .OrangePlayer{
+  color: Black;
+  background-color: Orange;
+}
+
+#BrownPlayer, .BrownPlayer{
+  color: white;
+  background-color: Brown;
+}
+
+#WhitePlayer, .WhitePlayer{
+  color: Black;
+  background-color: White;
+}
+
+#YellowPlayer, #Normal, .YellowPlayer{
+  color: Black;
+  background-color: Yellow;
+}
+
+#BlackPlayer, .BlackPlayer{
+  color: White;
+  background-color: Black;
+}
+
+#Hard, #RedPlayer, .RedPlayer{
+  color: White;
+  background-color: red;
+
+}
+
+#playertable{
+  grid-column: auto;
+  color: Black;
+
+}
+
+#ChosenDifficulty{
+  color: Black;
+  background-color: inherit;
+
+}
+
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;

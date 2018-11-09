@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="master.css">
+<!-- ENTERING FONTS HERE FOR LATER-->
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- END FONTS -->
+
+<head>
+<title>Great Western Trail Automa</title>
+<meta charset="utf-8" name="Webpage" content="1, 2, 3">
+<h1>Great Western Trail Automa</h1>
+</head>
+
+  <body>
+      <div class="Choices">
+        Choose number of players:
+        <select class="Players" name="" id="PlayerSelection">
+            <option value="1" id="1 Automa">1 Automa</option>
+            <option value="2" id="2 Automa">2 Automa</option>
+            <option value="3" id="3 Automa">3 Automa</option>
+        </select><br>
+        Choose Your Color:
+        <select class="Color" name="" id="PlayerColor">
+            <option value="Blue" id="BluePlayer">Blue</option>
+            <option value="Green" id="GreenPlayer">Green</option>
+            <option value="White" id="WhitePlayer">White</option>
+            <option value="Yellow" id="YellowPlayer">Yellow</option>
+            <option value="Black" id="BlackPlayer">Black</option>
+        </select><br>
+        Choose Game Difficulty:
+        <select class="Difficulty" name="" id="Difficulty">
+            <option value="Easy" id="Easy">Easy</option>
+            <option value="Normal" id="Normal">Normal</option>
+            <option value="Hard" id="Hard">Hard</option>
+        </select><br>
+        Choose Building Sides:
+        <select class="Building" name="" id="Building">
+            <option value="A" id="A_Building">A</option>
+            <option value="B" id="B_Building">B</option>
+            <option value="Both" id="Both_Building">Both</option>
+        </select><br>
+        <button type="submit" name="button" onclick="CreateGame()">Create Game</button>
+        &nbsp;
+        <button type="submit" name="button" onclick=document.location.reload(true)>Restart</button>
+      </div>
+<br>
+      <div class="Download" style=float: right>
+        <a href="gwtsolorules.pdf" download>
+        <button type="Download" class="download"><i class="fa fa-download"></i> Download Rules Here</button></a>
+      </div>
+
+<br>
+      <div id="Results">
+        <label for="Difficulty"><b>Difficulty: </b></label>
+        <label id="ChosenDifficulty"></label>
+        <br>
+        <label for="NumberofPlayers"><b>Number of Players: </b></label>
+        <label id="NumberofPlayers"></label>
+        <br>
+        <label for="BuildingSides"><b>Building Sides: </b></label>
+        <label id="BuildingSides"></label>
+      </div>
+
+<!-- Will enter the new info in here-->
+<br>
+    <div id="tables">
+          <table id="playertable">
+            <tr>
+              <th id="Player 1"></th>
+              <th id="Player 2"></th>
+              <th id="Player 3"></th>
+              <th id="Player 4"></th>
+            </tr>
+            <tr>
+              <td id="Player 1 Move"></td>
+              <td id="Player 2 Move"></td>
+              <td id="Player 3 Move"></td>
+              <td id="Player 4 Move"></td>
+            </tr>
+            <tr>
+              <td id="Move Description P1"></td>
+              <td id="Move Description P2"></td>
+              <td id="Move Description P3"></td>
+              <td id="Move Description P4"></td>
+            </tr>
+          </table>
+      </div>
+<!--Button for next move-->
+<br>
+      <div class="Next Move">
+          <button type="NextPlayer" name="NextPlayer" onclick="NextPlayer()">Next Player</button>
+          &nbsp;
+          <button type="Score" name="Score" onclick="Score()">Scoring Sheet</button>
+      </div>
+<br>
+      <div class="ScoreArea">
+        <table id="ScoringTable" class="Score">
+          <tr class="Score">
+            <th id="Header Score"></th>
+            <th id="Player 1 Score"></th>
+            <th id="Player 2 Score"></th>
+            <th id="Player 3 Score"></th>
+            <th id="Player 4 Score"></th>
+          </tr>
+          <tr class="Score">
+            <td id="Coin Score"></td>
+            <td id="Player 1 Coin"></td>
+            <td id="Player 2 Coin"></td>
+            <td id="Player 3 Coin"></td>
+            <td id="Player 4 Coin"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Bldg Score"></td>
+            <td id="Bldg P1"></td>
+            <td id="Bldg P2"></td>
+            <td id="Bldg P3"></td>
+            <td id="Bldg P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Delivery Score"></td>
+            <td id="Delivery P1"></td>
+            <td id="Delivery P2"></td>
+            <td id="Delivery P3"></td>
+            <td id="Delivery P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="TrainStation Score"></td>
+            <td id="TrainStation P1"></td>
+            <td id="TrainStation P2"></td>
+            <td id="TrainStation P3"></td>
+            <td id="TrainStation P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Hazard Score"></td>
+            <td id="Hazard P1"></td>
+            <td id="Hazard P2"></td>
+            <td id="Hazard P3"></td>
+            <td id="Hazard P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Cattle Score"></td>
+            <td id="Cattle P1"></td>
+            <td id="Cattle P2"></td>
+            <td id="Cattle P3"></td>
+            <td id="Cattle P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Objectives Score"></td>
+            <td id="Objectives P1"></td>
+            <td id="Objectives P2"></td>
+            <td id="Objectives P3"></td>
+            <td id="Objectives P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="MasterTiles Score"></td>
+            <td id="MasterTiles P1"></td>
+            <td id="MasterTiles P2"></td>
+            <td id="MasterTiles P3"></td>
+            <td id="MasterTiles P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Worker Score"></td>
+            <td id="Worker P1"></td>
+            <td id="Worker P2"></td>
+            <td id="Worker P3"></td>
+            <td id="Worker P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Board Score"></td>
+            <td id="Board P1"></td>
+            <td id="Board P2"></td>
+            <td id="Board P3"></td>
+            <td id="Board P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Market Score"></td>
+            <td id="Market P1"></td>
+            <td id="Market P2"></td>
+            <td id="Market P3"></td>
+            <td id="Market P4"></td>
+          </tr>
+          <tr class="Score">
+            <td id="Total Score"></td>
+            <td id="Total P1"></td>
+            <td id="Total P2"></td>
+            <td id="Total P3"></td>
+            <td id="Total P4"></td>
+          </tr>
+        </table>
+        <table class="Score">
+            <td id="FinalButton"></td>
+            <td id="CleanButton"></td>
+        </table>
+      </div>
+
+<br>
+      <div class="Return Main">
+        <a href="index.html">
+          <button type="button" name="Return" onclick="goback()">Return to Main Page</button>
+        </a>
+      </div>
+  </body>
+
+<script src="Main.js"></script>
+</html>
