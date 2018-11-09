@@ -39,16 +39,16 @@ for (i=1;i<=4;i++){
 //Setting up difficulty and arrays
 //Easy: No Card #2 and Automa starts with 0 VP.
   if (DifficultyLevel == "Automalein - Easy"){
-    PlayerCards1 = [1,4,5,7,13];
+    PlayerCards4 = [1,4,5,7,13];
     PlayerCards2 = [1,4,5,7,13];
     PlayerCards3 = [1,4,5,7,13];
-    Cards1 = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+    Cards4 = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards2 = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards3 = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-    for (i=0;i<PlayerCards1.length;i++){
-      for (j=0;j<Cards1.length;j++){
-        if(PlayerCards1[i] == Cards1[j]){
-        Cards1.splice(j,1);
+    for (i=0;i<PlayerCards4.length;i++){
+      for (j=0;j<Cards4.length;j++){
+        if(PlayerCards4[i] == Cards4[j]){
+        Cards4.splice(j,1);
         Cards2.splice(j,1);
         Cards3.splice(j,1);
       }
@@ -57,16 +57,16 @@ for (i=1;i<=4;i++){
   }
 //Normal: All 6 cards and 10 VP.
   if (DifficultyLevel == "Automa - Normal"){
-    PlayerCards1 = [1,2,4,5,7,13];
+    PlayerCards4 = [1,2,4,5,7,13];
     PlayerCards2 = [1,2,4,5,7,13];
     PlayerCards3 = [1,2,4,5,7,13];
-    Cards1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+    Cards4 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-    for (i=0;i<PlayerCards1.length;i++){
-      for (j=0;j<Cards1.length;j++){
-        if(PlayerCards1[i] == Cards1[j]){
-        Cards1.splice(j,1);
+    for (i=0;i<PlayerCards4.length;i++){
+      for (j=0;j<Cards4.length;j++){
+        if(PlayerCards4[i] == Cards4[j]){
+        Cards4.splice(j,1);
         Cards2.splice(j,1);
         Cards3.splice(j,1);
       }
@@ -263,9 +263,10 @@ document.getElementById("P1_Move").innerHTML = "Your Turn";
 }
 
 
-var valor;
+let valor;
+let pass;
 let array = [];
-var side;
+let side;
 
 function ReadCardNumber(Number){
     switch (Number) {
@@ -338,7 +339,7 @@ function ReadCardNumber(Number){
         pass = false;
         break;
        }
-return array = [valor,pass];
+return array = [valor, pass];
 }
 
 let turno = 0;
@@ -379,12 +380,15 @@ function NextPlayer(){
           if (TurnCounter.length == 3){
               PreviousNumber = Math.floor(Math.random()*PlayerCards2.length)
           }
+
+          oldCard = ReadCardNumber(PreviousNumber);
           PlayerCards2.splice(PreviousNumber,1);
           document.getElementById("P2_Move").innerHTML = "P2 Move";
-          document.getElementById("P2 Card 1").innerHTML = ReadCardNumber(PreviousNumber)[0];
-          NewNumber = Math.floor(Math.random()*PlayerCards2.length)
-          document.getElementById("P2 Card 2").innerHTML = ReadCardNumber(NewNumber);
-          console.log(PreviousNumber,NewNumber);
+          document.getElementById("P2 Card 1").innerHTML = oldCard[0];
+          NewNumber = Math.floor(Math.random()*PlayerCards2.length);
+          newCard = ReadCardNumber(NewNumber);
+          document.getElementById("P2 Card 2").innerHTML = newCard[0];
+          console.log("P",PreviousNumber,"N",NewNumber);
           PreviousNumber = NewNumber;
           console.log(PlayerCards2 ,TurnCounter, PreviousNumber, NewNumber);
         } //end ELSE
