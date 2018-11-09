@@ -75,16 +75,16 @@ for (i=1;i<=4;i++){
   }
 //All 6 cards plus card # 9 to initial deck.
   if (DifficultyLevel == "Automachtig - Hard"){
-    PlayerCards1 = [1,2,4,5,7,9,13];
+    PlayerCards4 = [1,2,4,5,7,9,13];
     PlayerCards2 = [1,2,4,5,7,9,13];
     PlayerCards3 = [1,2,4,5,7,9,13];
-    Cards1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+    Cards4 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-    for (i=0;i<PlayerCards1.length;i++){
-      for (j=0;j<Cards1.length;j++){
-        if(PlayerCards1[i] == Cards1[j]){
-        Cards1.splice(j,1);
+    for (i=0;i<PlayerCards4.length;i++){
+      for (j=0;j<Cards4.length;j++){
+        if(PlayerCards4[i] == Cards4[j]){
+        Cards4.splice(j,1);
         Cards2.splice(j,1);
         Cards3.splice(j,1);
       }
@@ -93,16 +93,16 @@ for (i=1;i<=4;i++){
   }
 //All 6 cards plus card # 9 & 15 to initial deck.
   if (DifficultyLevel == "Ultoma - Very Hard"){
-    PlayerCards1 = [1,2,4,5,7,9,13,15];
+    PlayerCards4 = [1,2,4,5,7,9,13,15];
     PlayerCards2 = [1,2,4,5,7,9,13,15];
     PlayerCards3 = [1,2,4,5,7,9,13,15];
-    Cards1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+    Cards4 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-    for (i=0;i<PlayerCards1.length;i++){
-      for (j=0;j<Cards1.length;j++){
-        if(PlayerCards1[i] == Cards1[j]){
-        Cards1.splice(j,1);
+    for (i=0;i<PlayerCards4.length;i++){
+      for (j=0;j<Cards4.length;j++){
+        if(PlayerCards4[i] == Cards4[j]){
+        Cards4.splice(j,1);
         Cards2.splice(j,1);
         Cards3.splice(j,1);
       }
@@ -111,13 +111,13 @@ for (i=1;i<=4;i++){
   }
 //All 6 cards plus card # 9 & 15 to initial deck.
   if (DifficultyLevel == "Alptrauma - Extreme"){
-    Cards1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+    Cards4 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     Cards3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-    for (i=0;i<PlayerCards1.length;i++){
-      for (j=0;j<Cards1.length;j++){
-        if(PlayerCards1[i] == Cards1[j]){
-        Cards1.splice(j,1);
+    for (i=0;i<PlayerCards4.length;i++){
+      for (j=0;j<Cards4.length;j++){
+        if(PlayerCards4[i] == Cards4[j]){
+        Cards4.splice(j,1);
         Cards2.splice(j,1);
         Cards3.splice(j,1);
       }
@@ -173,11 +173,15 @@ var counter = 0;
     if(counter > PlayerNumber){
       window.alert("You've selected more Automas than you are allowed to");
       document.location.reload(true);
+      return;
+
     }
 //not enough selected
     if(counter < PlayerNumber || counter == 0){
       window.alert("You have to select more Automas");
       document.location.reload(true);
+      return;
+
     }
 
 //Reads the input for Automa PlayerSelection
@@ -186,6 +190,7 @@ var counter = 0;
     if(document.getElementById("Automa"+i).checked &&  document.getElementById("Automa"+i).value == PlayerColor){
       window.alert("Please do not select the same color for the Player and Automas");
       document.location.reload(true);
+      return;
     }
     if(document.getElementById("Automa"+i).checked){
       Players.push(document.getElementById("Automa"+i).value);
@@ -231,12 +236,12 @@ console.log("P",Players);
 //Thid part throws back the selected difficulty and number of players.
 document.getElementById("ChosenDifficulty").innerHTML = DifficultyLevel;
 document.getElementById("NumberofPlayers").innerHTML = Players.length;
-document.getElementById("P1 Move").innerHTML = "Your Turn";
+document.getElementById("P1_Move").innerHTML = "Your Turn";
 
 //This part is creating the Automa decks. Each difficulty has its o
     numero = Math.floor(Math.random()*Cards1.length);
-    PlayerCards1.push(Cards1[numero]);
-    Cards1.splice(numero,1);
+    PlayerCards4.push(Cards1[numero]);
+    Cards4.splice(numero,1);
     numero = Math.floor(Math.random()*Cards2.length);
     PlayerCards2.push(Cards2[numero]);
     Cards2.splice(numero,1);
@@ -259,100 +264,138 @@ document.getElementById("P1 Move").innerHTML = "Your Turn";
 
 
 var valor;
+let array = [];
 var side;
 
 function ReadCardNumber(Number){
     switch (Number) {
       case 1:
         valor = "<img src=GaiaProject/Gaia_1.jpg>";
+        pass = true;
         break;
       case 2:
         valor = "<img src=GaiaProject/Gaia_2.jpg>";
+        pass = true;
         break;
       case 3:
         valor = "<img src=GaiaProject/Gaia_3.jpg>";
+        pass = true;
         break;
       case 4:
         valor = "<img src=GaiaProject/Gaia_4.jpg>";
+        pass = false;
         break;
       case 5:
         valor = "<img src=GaiaProject/Gaia_5.jpg>";
+        pass = true;
         break;
       case 6:
         valor = "<img src=GaiaProject/Gaia_6.jpg>";
+        pass = false;
         break;
       case 7:
         valor = "<img src=GaiaProject/Gaia_7.jpg>";
+        pass = false;
         break;
       case 8:
         valor = "<img src=GaiaProject/Gaia_8.jpg>";
+        pass = true;
         break;
       case 9:
         valor = "<img src=GaiaProject/Gaia_9.jpg>";
+        pass = false;
         break;
       case 10:
         valor = "<img src=GaiaProject/Gaia_10.jpg>";
+        pass = true;
         break;
       case 11:
         valor = "<img src=GaiaProject/Gaia_11.jpg>";
+        pass = false;
         break;
       case 12:
         valor = "<img src=GaiaProject/Gaia_12.jpg>";
+        pass = true;
         break;
       case 13:
         valor = "<img src=GaiaProject/Gaia_13.jpg>";
+        pass = false;
         break;
       case 14:
         valor = "<img src=GaiaProject/Gaia_14.jpg>";
+        pass = false;
         break;
       case 15:
         valor = "<img src=GaiaProject/Gaia_15.jpg>";
+        pass = false;
         break;
       case 16:
         valor = "<img src=GaiaProject/Gaia_16.jpg>";
+        pass = true;
         break;
       case 17:
         valor = "<img src=GaiaProject/Gaia_17.jpg>";
+        pass = false;
         break;
        }
-return valor;
+return array = [valor,pass];
 }
 
 let turno = 0;
+let newTurn = true;
 
 function NextPlayer(){
   TotalPlayers = Players.length;
+  PlayerOrder = Players.slice(0);
 
   //Create Variables for each players
 
     if (TurnCounter[TurnCounter.length-1] == 0){
-      document.getElementById("P1 Move").innerHTML = "";
+      document.getElementById("P1_Move").innerHTML = "";
       TurnCounter.push(2)
     }
   turno = TurnCounter[TurnCounter.length-1];
 
+  if (newTurn == true) { //copying the card arrays before starting the new turn.
+    PlayerCardsCopy2 = PlayerCards2.slice(0);
+    PlayerCardsCopy3 = PlayerCards3.slice(0);
+    PlayerCardsCopy4 = PlayerCards4.slice(0);
+  }
+
+  console.log(PlayerCardsCopy2,PlayerCards2);
   switch (TotalPlayers) {
     case 2:
 
         if(TurnCounter[TurnCounter.length-1] == 1) {
           TurnCounter.push(2);
-          document.getElementById("P1 Move").innerHTML = "Your Turn";
-        }
+          document.getElementById("P1_Move").innerHTML = "Your Turn";
+          document.getElementById("P2_Move").innerHTML = "";
+        } //END IF
         else{
           TurnCounter.push(1);
-          document.getElementById("P1 Move").innerHTML = "";
+          document.getElementById("P1_Move").innerHTML = "";
           document.getElementById("P2 Card 1").innerHTML = "";
           document.getElementById("P2 Card 2").innerHTML = "";
           if (TurnCounter.length == 3){
               PreviousNumber = Math.floor(Math.random()*PlayerCards2.length)
           }
-          document.getElementById("P2 Card 1").innerHTML = ReadCardNumber(PreviousNumber);
+          PlayerCards2.splice(PreviousNumber,1);
+          document.getElementById("P2_Move").innerHTML = "P2 Move";
+          document.getElementById("P2 Card 1").innerHTML = ReadCardNumber(PreviousNumber)[0];
           NewNumber = Math.floor(Math.random()*PlayerCards2.length)
           document.getElementById("P2 Card 2").innerHTML = ReadCardNumber(NewNumber);
+          console.log(PreviousNumber,NewNumber);
           PreviousNumber = NewNumber;
-          console.log(TurnCounter, PreviousNumber, NewNumber);
-        }
+          console.log(PlayerCards2 ,TurnCounter, PreviousNumber, NewNumber);
+        } //end ELSE
         console.log(TurnCounter, PreviousNumber, NewNumber);
+
+        if (newTurn == false && PlayerOrder.length == 0) {
+          newTurn = true;
+
+
+        }
+
       break;
     case 3:
 

@@ -50,6 +50,11 @@ body{
 
 }
 
+#P1_Move, #P2_Move, #P3_Move, #P4_Move {
+  width: 100px;
+
+}
+
 tr{
   width: auto;
   height: auto;
